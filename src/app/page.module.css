@@ -1,0 +1,75 @@
+.main {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 200px;
+  justify-content: center;
+}
+
+.addToDInputWrapper {
+  gap: 8px;
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.todoTitle {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.input {
+  font-size: 14px;
+  min-width: 250px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.select {
+  border: none;
+  font-size: 14px;
+  min-height: 40px;
+  min-width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  border: 1px solid #aaa;
+  background-color: #f7f5f5;
+}
+
+.button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  min-height: 40px;
+  padding: 2px 16px;
+  border-radius: 4px;
+  background: #1c6aea;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.list {
+  list-style: none;
+}
+
+.listItem {
+  padding: 6px 0px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.listItemTitle {
+  font-size: 16px;
+}
