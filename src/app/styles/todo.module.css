@@ -51,7 +51,12 @@
   background: #1c6aea;
 }
 
-.button:active {
+.button:disabled {
+  cursor: not-allowed;
+  background: #ccc;
+}
+
+.button:not(:disabled):active {
   transform: scale(0.97);
 }
 
@@ -71,6 +76,7 @@
 .checkbox {
   width: 16px;
   height: 16px;
+  cursor: pointer;
   margin-left: 8px;
   vertical-align: middle;
 }
