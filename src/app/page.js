@@ -18,19 +18,19 @@ export default function Home() {
           <ul className={styles.list}>
             <li className={styles.listItem}>
               <input className={styles.checkbox} type="checkbox" id="check1" />
-              <label className={styles.listItemTitle} for="check1">
+              <label className={styles.listItemTitle} htmlFor="check1">
                 اولین تسک
               </label>
             </li>
             <li className={styles.listItem}>
               <input className={styles.checkbox} type="checkbox" id="check2" />
-              <label className={styles.listItemTitle} for="check2">
+              <label className={styles.listItemTitle} htmlFor="check2">
                 دومین تسک
               </label>
             </li>
             <li className={styles.listItem}>
               <input className={styles.checkbox} type="checkbox" id="check3" />
-              <label className={styles.listItemTitle} for="check3">
+              <label className={styles.listItemTitle} htmlFor="check3">
                 سومین تسک
               </label>
             </li>
