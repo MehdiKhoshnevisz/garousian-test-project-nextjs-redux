@@ -34,7 +34,7 @@
   min-width: 100%;
   padding: 8px 12px;
   border-radius: 4px;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   border: 1px solid #aaa;
   background-color: #f7f5f5;
 }
@@ -60,7 +60,12 @@
 }
 
 .listItem {
-  padding: 6px 0px;
+  display: flex;
+  margin: 12px 0px;
+  padding: 12px 12px;
+  border-radius: 4px;
+  align-items: center;
+  background-color: #fafafa;
 }
 
 .checkbox {
@@ -72,4 +77,10 @@
 
 .listItemTitle {
   font-size: 16px;
+}
+
+.delete {
+  cursor: pointer;
+  color: #494748;
+  margin-right: auto;
 }

@@ -1,41 +1,22 @@
-import styles from "./page.module.css";
+import { TodoAdd } from "./components/TodoAdd";
+import { TodoTask } from "./components/TodoTask";
+import { TodoFilter } from "./components/TodoFilter";
+import { TodoTaskWrapper } from "./components/TodoTaskWrapper";
+
+import todoStyles from "./styles/todo.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className={todoStyles.main}>
       <div>
-        <h1 className={styles.todoTitle}>ToDo App</h1>
-        <div className={styles.addToDInputWrapper}>
-          <input className={styles.input} placeholder="آیتم جدید اضافه کنید" />
-          <button className={styles.button}>اضافه کن</button>
-        </div>
-        <select className={styles.select}>
-          <option value="all">همه</option>
-          <option value="doing">در حال انجام</option>
-          <option value="done">انجام شده</option>
-        </select>
-        <div>
-          <ul className={styles.list}>
-            <li className={styles.listItem}>
-              <input className={styles.checkbox} type="checkbox" id="check1" />
-              <label className={styles.listItemTitle} htmlFor="check1">
-                اولین تسک
-              </label>
-            </li>
-            <li className={styles.listItem}>
-              <input className={styles.checkbox} type="checkbox" id="check2" />
-              <label className={styles.listItemTitle} htmlFor="check2">
-                دومین تسک
-              </label>
-            </li>
-            <li className={styles.listItem}>
-              <input className={styles.checkbox} type="checkbox" id="check3" />
-              <label className={styles.listItemTitle} htmlFor="check3">
-                سومین تسک
-              </label>
-            </li>
-          </ul>
-        </div>
+        <h1 className={todoStyles.todoTitle}>ToDo App</h1>
+        <TodoAdd />
+        <TodoFilter />
+        <TodoTaskWrapper>
+          <TodoTask label="اولین تسک" id="task-1" />
+          <TodoTask label="دومین تسک" id="task-2" />
+          <TodoTask label="سومین تسک" id="task-3" checked />
+        </TodoTaskWrapper>
       </div>
     </main>
   );
