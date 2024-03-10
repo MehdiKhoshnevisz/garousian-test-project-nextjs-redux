@@ -1,8 +1,7 @@
 "use client";
 
-import { useSelector } from "react-redux";
-
 import { filters } from "./constants";
+import useTodo from "./hooks/useTodo";
 
 import { TodoAdd } from "./components/TodoAdd";
 import { TodoTask } from "./components/TodoTask";
@@ -12,7 +11,9 @@ import { TodoTaskWrapper } from "./components/TodoTaskWrapper";
 import todoStyles from "./styles/todo.module.css";
 
 export default function Home() {
-  const { todoList, filterBy } = useSelector((state) => state.todo);
+  const {
+    state: { todoList, filterBy },
+  } = useTodo();
 
   const filteredTodos = todoList.filter((todo) => {
     switch (filterBy) {

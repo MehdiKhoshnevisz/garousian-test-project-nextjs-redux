@@ -1,12 +1,13 @@
-import { useDispatch } from "react-redux";
-
 import { filters } from "../constants";
-import { filterByTodo } from "../store/todoReducer";
+import useTodo from "../hooks/useTodo";
 
 import todoStyles from "../styles/todo.module.css";
 
 export const TodoFilter = () => {
-  const dispatch = useDispatch();
+  const {
+    dispatch,
+    reducers: { filterByTodo },
+  } = useTodo();
 
   const onChange = (event) => {
     const { value } = event.target;

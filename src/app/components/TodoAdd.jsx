@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 
-import { addTodo } from "../store/todoReducer";
+import useTodo from "../hooks/useTodo";
 
 import todoStyles from "../styles/todo.module.css";
 
 export const TodoAdd = () => {
-  const dispatch = useDispatch();
+  const {
+    dispatch,
+    reducers: { addTodo },
+  } = useTodo();
+
   const [todoItem, setTodoItem] = useState({ label: "", completed: false });
 
   const onInputChange = (event) => {

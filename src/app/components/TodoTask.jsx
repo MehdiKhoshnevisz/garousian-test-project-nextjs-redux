@@ -1,12 +1,14 @@
-import { useDispatch } from "react-redux";
-
-import { toggleTodo, deleteTodo } from "../store/todoReducer";
+import useTodo from "../hooks/useTodo";
 
 import todoStyles from "../styles/todo.module.css";
 
 export const TodoTask = (props) => {
+  const {
+    dispatch,
+    reducers: { toggleTodo, deleteTodo },
+  } = useTodo();
+
   const { label, id, completed } = props;
-  const dispatch = useDispatch();
 
   const onChange = () => {
     dispatch(toggleTodo(id));
