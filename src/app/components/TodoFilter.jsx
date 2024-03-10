@@ -1,3 +1,5 @@
+"use client";
+
 import { filters } from "../constants";
 import useTodo from "../hooks/useTodo";
 

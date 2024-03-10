@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 import useTodo from "../hooks/useTodo";

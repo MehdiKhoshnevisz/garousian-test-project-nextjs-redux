@@ -1,3 +1,5 @@
+"use client";
+
 import useTodo from "../hooks/useTodo";
 
 import todoStyles from "../styles/todo.module.css";
