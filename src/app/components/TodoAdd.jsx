@@ -7,7 +7,7 @@ import todoStyles from "../styles/todo.module.css";
 
 export const TodoAdd = () => {
   const dispatch = useDispatch();
-  const [todoItem, setTodoItem] = useState({ label: "", completed: true });
+  const [todoItem, setTodoItem] = useState({ label: "", completed: false });
 
   const onInputChange = (event) => {
     const { value } = event.target;

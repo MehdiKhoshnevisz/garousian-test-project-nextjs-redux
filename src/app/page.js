@@ -2,6 +2,8 @@
 
 import { useSelector } from "react-redux";
 
+import { filters } from "./constants";
+
 import { TodoAdd } from "./components/TodoAdd";
 import { TodoTask } from "./components/TodoTask";
 import { TodoFilter } from "./components/TodoFilter";
@@ -10,7 +12,20 @@ import { TodoTaskWrapper } from "./components/TodoTaskWrapper";
 import todoStyles from "./styles/todo.module.css";
 
 export default function Home() {
-  const { todoList } = useSelector((state) => state.todo);
+  const { todoList, filterBy } = useSelector((state) => state.todo);
+
+  const filteredTodos = todoList.filter((todo) => {
+    switch (filterBy) {
+      case filters.ALL:
+        return true;
+      case filters.DOING:
+        return !todo.completed;
+      case filters.DONE:
+        return todo.completed;
+      default:
+        return true;
+    }
+  });
 
   return (
     <main className={todoStyles.main}>
@@ -19,7 +34,7 @@ export default function Home() {
         <TodoAdd />
         <TodoFilter />
         <TodoTaskWrapper>
-          {todoList.map((todo, index) => (
+          {filteredTodos.map((todo, index) => (
             <TodoTask
               key={index}
               label={todo.label}

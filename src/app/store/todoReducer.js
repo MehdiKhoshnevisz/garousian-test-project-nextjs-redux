@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { filters } from "../constants";
+
 const initialState = {
+  filterBy: filters.ALL,
   todoList: [
     {
       label: "تسک اول",
@@ -37,8 +40,11 @@ const todo = createSlice({
         todo.completed = !todo.completed;
       }
     },
+    filterByTodo: (state, action) => {
+      state.filterBy = action.payload;
+    },
   },
 });
 
-export const { addTodo, deleteTodo, toggleTodo } = todo.actions;
+export const { addTodo, deleteTodo, toggleTodo, filterByTodo } = todo.actions;
 export default todo.reducer;
