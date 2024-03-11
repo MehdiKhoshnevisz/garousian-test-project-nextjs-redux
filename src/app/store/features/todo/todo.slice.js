@@ -4,12 +4,12 @@ import { addReducer } from "./thunks/add.thunk";
 import { deleteReducer } from "./thunks/delete.thunk";
 import { toggleReducer } from "./thunks/toggle.thunk";
 
-import { filters } from "../../../constants";
+import { FILTERS } from "../../../constants";
 
 const initialState = {
   addStatus: "",
   actionStatus: "",
-  filterBy: filters.ALL,
+  filterBy: FILTERS.ALL,
   todoList: [
     {
       id: +new Date() + 1,

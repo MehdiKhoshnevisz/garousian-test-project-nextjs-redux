@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+import { STATUSES } from "@/app/constants";
 import waitForResponse from "@/app/services/api";
 
 export const addTodo = createAsyncThunk("todo/add", async (task) => {
@@ -10,10 +11,10 @@ export const addTodo = createAsyncThunk("todo/add", async (task) => {
 export const addReducer = (builder) => {
   builder
     .addCase(addTodo.pending, (state) => {
-      state.addStatus = "loading";
+      state.addStatus = STATUSES.LOADING;
     })
     .addCase(addTodo.fulfilled, (state, action) => {
-      state.addStatus = "succeeded";
+      state.addStatus = STATUSES.SUCCESS;
       state.todoList = [...state.todoList, { ...action.payload }];
     });
 };

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+import { STATUSES } from "@/app/constants";
 import waitForResponse from "@/app/services/api";
 
 export const toggleTodo = createAsyncThunk("todo/toggle", async (id) => {
@@ -10,10 +11,10 @@ export const toggleTodo = createAsyncThunk("todo/toggle", async (id) => {
 export const toggleReducer = (builder) => {
   builder
     .addCase(toggleTodo.pending, (state) => {
-      state.actionStatus = "loading";
+      state.actionStatus = STATUSES.LOADING;
     })
     .addCase(toggleTodo.fulfilled, (state, action) => {
-      state.actionStatus = "succeeded";
+      state.actionStatus = STATUSES.SUCCESS;
       const todo = state.todoList.find(
         (todo, index) => todo.id === action.payload
       );

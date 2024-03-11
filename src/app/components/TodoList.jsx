@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import useTodo from "../hooks/useTodo";
-import { filters } from "../constants";
+import { FILTERS, STATUSES } from "../constants";
 
 import { TodoTask } from "./TodoTask";
 import { TodoTaskWrapper } from "./TodoTaskWrapper";
@@ -19,11 +19,11 @@ export const TodoList = () => {
 
   const filteredTodos = todoList.filter((todo) => {
     switch (filterBy) {
-      case filters.ALL:
+      case FILTERS.ALL:
         return true;
-      case filters.DOING:
+      case FILTERS.DOING:
         return !todo.completed;
-      case filters.DONE:
+      case FILTERS.DONE:
         return todo.completed;
       default:
         return true;
@@ -50,7 +50,7 @@ export const TodoList = () => {
           completed={todo.completed}
           onDelete={() => onDelete(todo.id)}
           onToggle={() => onToggle(todo.id)}
-          isLoading={selected === todo.id && actionStatus === "loading"}
+          isLoading={todo.id === selected && actionStatus === STATUSES.LOADING}
         />
       ))}
     </TodoTaskWrapper>
