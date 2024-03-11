@@ -30,8 +30,8 @@ export const TodoAdd = () => {
     dispatch(addTodo(todoItem));
   };
 
-  const buttonText =
-    addStatus === STATUSES.LOADING ? "در حال افزودن" : "اضافه کن";
+  const isLoading = addStatus === STATUSES.LOADING;
+  const buttonText = isLoading ? "در حال افزودن" : "اضافه کن";
 
   return (
     <div className={todoStyles.addToDInputWrapper}>
@@ -41,6 +41,7 @@ export const TodoAdd = () => {
         placeholder="آیتم جدید اضافه کنید"
         onChange={onInputChange}
         onKeyDown={(event) => event.key === "Enter" && onAddClick()}
+        disabled={isLoading}
       />
       <button
         className={todoStyles.button}
