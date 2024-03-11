@@ -45,7 +45,7 @@ export const TodoList = () => {
       {filteredTodos.map((todo, index) => (
         <TodoTask
           key={index}
-          id={todo.id}
+          id={`task-${index}`}
           label={todo.label}
           completed={todo.completed}
           onDelete={() => onDelete(todo.id)}
