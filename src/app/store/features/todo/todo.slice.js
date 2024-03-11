@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { addReducer } from "./thunks/add";
-import { deleteReducer } from "./thunks/delete";
-import { toggleReducer } from "./thunks/toggle";
+import { addReducer } from "./thunks/add.thunk";
+import { deleteReducer } from "./thunks/delete.thunk";
+import { toggleReducer } from "./thunks/toggle.thunk";
 
-import { filters } from "../../constants";
+import { filters } from "../../../constants";
 
 const initialState = {
   addStatus: "",

@@ -2,8 +2,8 @@
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { filterByTodo } from "../store/todo";
-import { addTodo, deleteTodo, toggleTodo } from "../store/todo/thunks";
+import { filterByTodo } from "../store/features/todo/todo.slice";
+import { addTodo, deleteTodo, toggleTodo } from "../store/features/todo/thunks";
 
 const useTodo = () => {
   const dispatch = useDispatch();
