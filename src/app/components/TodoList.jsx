@@ -42,17 +42,23 @@ export const TodoList = () => {
 
   return (
     <TodoTaskWrapper>
-      {filteredTodos.map((todo, index) => (
-        <TodoTask
-          key={index}
-          id={`task-${index}`}
-          label={todo.label}
-          completed={todo.completed}
-          onDelete={() => onDelete(todo.id)}
-          onToggle={() => onToggle(todo.id)}
-          isLoading={todo.id === selected && actionStatus === STATUSES.LOADING}
-        />
-      ))}
+      {!!filteredTodos.length ? (
+        filteredTodos.map((todo, index) => (
+          <TodoTask
+            key={index}
+            id={`task-${index}`}
+            label={todo.label}
+            completed={todo.completed}
+            onDelete={() => onDelete(todo.id)}
+            onToggle={() => onToggle(todo.id)}
+            isLoading={
+              todo.id === selected && actionStatus === STATUSES.LOADING
+            }
+          />
+        ))
+      ) : (
+        <p style={{ textAlign: "center" }}>تسکی جهت نمایش وجود ندارد</p>
+      )}
     </TodoTaskWrapper>
   );
 };
