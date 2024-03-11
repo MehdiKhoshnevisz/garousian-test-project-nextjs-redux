@@ -4,7 +4,7 @@ import { addReducer } from "./thunks/add.thunk";
 import { deleteReducer } from "./thunks/delete.thunk";
 import { toggleReducer } from "./thunks/toggle.thunk";
 
-import { FILTERS } from "../../../constants";
+import { FILTERS } from "@/app/constants";
 
 const initialState = {
   addStatus: "",

@@ -1,9 +1,9 @@
 "use client";
 
-import { FILTERS } from "../constants";
-import useTodo from "../hooks/useTodo";
+import useTodo from "@/app/hooks/useTodo";
+import { FILTERS } from "@/app/constants";
 
-import todoStyles from "../styles/todo.module.css";
+import todoStyles from "@/app/styles/todo.module.css";
 
 export const TodoFilter = () => {
   const {

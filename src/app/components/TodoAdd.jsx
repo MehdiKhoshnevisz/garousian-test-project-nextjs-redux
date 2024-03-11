@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import useTodo from "../hooks/useTodo";
-import todoStyles from "../styles/todo.module.css";
+import useTodo from "@/app/hooks/useTodo";
+import todoStyles from "@/app/styles/todo.module.css";
 
 export const TodoAdd = () => {
   const {

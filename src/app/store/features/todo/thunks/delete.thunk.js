@@ -19,7 +19,7 @@ export const deleteReducer = (builder) => {
         (todo) => todo.id !== action.payload
       );
     })
-    .addCase(addTodo.rejected, (state) => {
+    .addCase(deleteTodo.rejected, (state) => {
       state.actionStatus = STATUSES.ERROR;
     });
 };

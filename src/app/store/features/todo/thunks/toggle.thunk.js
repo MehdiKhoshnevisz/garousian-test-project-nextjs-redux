@@ -20,7 +20,7 @@ export const toggleReducer = (builder) => {
         todo.completed = !todo.completed;
       }
     })
-    .addCase(addTodo.rejected, (state) => {
+    .addCase(toggleTodo.rejected, (state) => {
       state.actionStatus = STATUSES.ERROR;
     });
 };

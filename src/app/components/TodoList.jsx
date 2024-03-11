@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import useTodo from "../hooks/useTodo";
-import { FILTERS, STATUSES } from "../constants";
+import useTodo from "@/app/hooks/useTodo";
+import { FILTERS, STATUSES } from "@/app/constants";
 
 import { TodoTask } from "./TodoTask";
 import { TodoTaskWrapper } from "./TodoTaskWrapper";

@@ -1,6 +1,6 @@
 "use client";
 
-import todoStyles from "../styles/todo.module.css";
+import todoStyles from "@/app/styles/todo.module.css";
 
 export const TodoTask = (props) => {
   const { label, id, completed, onDelete, onToggle, isLoading } = props;
