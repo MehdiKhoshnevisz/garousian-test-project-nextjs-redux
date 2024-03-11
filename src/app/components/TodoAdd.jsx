@@ -40,6 +40,7 @@ export const TodoAdd = () => {
         className={todoStyles.input}
         placeholder="آیتم جدید اضافه کنید"
         onChange={onInputChange}
+        onKeyDown={(event) => event.key === "Enter" && onAddClick()}
       />
       <button
         className={todoStyles.button}
