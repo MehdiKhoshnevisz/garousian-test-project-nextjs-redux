@@ -3,16 +3,20 @@
 import { useState } from "react";
 
 import useTodo from "../hooks/useTodo";
-
 import todoStyles from "../styles/todo.module.css";
 
 export const TodoAdd = () => {
   const {
     dispatch,
+    state: { addStatus },
     reducers: { addTodo },
   } = useTodo();
 
-  const [todoItem, setTodoItem] = useState({ label: "", completed: false });
+  const [todoItem, setTodoItem] = useState({
+    id: "",
+    label: "",
+    completed: false,
+  });
 
   const onInputChange = (event) => {
     const { value } = event.target;
@@ -20,9 +24,11 @@ export const TodoAdd = () => {
   };
 
   const onAddClick = () => {
+    setTodoItem({ ...todoItem, label: "", id: +new Date() });
     dispatch(addTodo(todoItem));
-    setTodoItem({ ...todoItem, label: "" });
   };
+
+  const buttonText = addStatus === "loading" ? "در حال افزودن" : "اضافه کن";
 
   return (
     <div className={todoStyles.addToDInputWrapper}>
@@ -37,7 +43,7 @@ export const TodoAdd = () => {
         disabled={!todoItem.label}
         onClick={onAddClick}
       >
-        اضافه کن
+        {buttonText}
       </button>
     </div>
   );

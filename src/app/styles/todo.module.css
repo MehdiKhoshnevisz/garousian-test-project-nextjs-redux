@@ -70,7 +70,26 @@
   padding: 12px 12px;
   border-radius: 4px;
   align-items: center;
+  border: 1px solid #eee;
   background-color: #fafafa;
+}
+
+@keyframes opacityChange {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.listItemLoading {
+  pointer-events: none;
+  animation: opacityChange 1s infinite;
+  animation-timing-function: ease-in-out;
 }
 
 .checkbox {

@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import useTodo from "../hooks/useTodo";
 import { filters } from "../constants";
 
@@ -8,8 +10,12 @@ import { TodoTaskWrapper } from "./TodoTaskWrapper";
 
 export const TodoList = () => {
   const {
-    state: { todoList, filterBy },
+    dispatch,
+    state: { todoList, actionStatus, filterBy },
+    reducers: { toggleTodo, deleteTodo },
   } = useTodo();
+
+  const [selected, setSelected] = useState();
 
   const filteredTodos = todoList.filter((todo) => {
     switch (filterBy) {
@@ -24,14 +30,27 @@ export const TodoList = () => {
     }
   });
 
+  const onDelete = (id) => {
+    setSelected(id);
+    dispatch(deleteTodo(id));
+  };
+
+  const onToggle = (id) => {
+    setSelected(id);
+    dispatch(toggleTodo(id));
+  };
+
   return (
     <TodoTaskWrapper>
       {filteredTodos.map((todo, index) => (
         <TodoTask
           key={index}
+          id={todo.id}
           label={todo.label}
-          id={index}
           completed={todo.completed}
+          onDelete={() => onDelete(todo.id)}
+          onToggle={() => onToggle(todo.id)}
+          isLoading={selected === todo.id && actionStatus === "loading"}
         />
       ))}
     </TodoTaskWrapper>

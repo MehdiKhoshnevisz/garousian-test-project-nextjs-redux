@@ -1,32 +1,21 @@
 "use client";
 
-import useTodo from "../hooks/useTodo";
-
 import todoStyles from "../styles/todo.module.css";
 
 export const TodoTask = (props) => {
-  const {
-    dispatch,
-    reducers: { toggleTodo, deleteTodo },
-  } = useTodo();
-
-  const { label, id, completed } = props;
-
-  const onChange = () => {
-    dispatch(toggleTodo(id));
-  };
-
-  const onDelete = () => {
-    dispatch(deleteTodo(id));
-  };
+  const { label, id, completed, onDelete, onToggle, isLoading } = props;
 
   return (
-    <li className={todoStyles.listItem}>
+    <li
+      className={`${todoStyles.listItem} ${
+        isLoading && todoStyles.listItemLoading
+      }`}
+    >
       <input
         id={id}
         type="checkbox"
         checked={completed}
-        onChange={onChange}
+        onChange={onToggle}
         className={todoStyles.checkbox}
       />
       <label htmlFor={id} className={todoStyles.listItemTitle}>
