@@ -16,5 +16,8 @@ export const addReducer = (builder) => {
     .addCase(addTodo.fulfilled, (state, action) => {
       state.addStatus = STATUSES.SUCCESS;
       state.todoList = [...state.todoList, { ...action.payload }];
+    })
+    .addCase(addTodo.rejected, (state) => {
+      state.addStatus = STATUSES.ERROR;
     });
 };

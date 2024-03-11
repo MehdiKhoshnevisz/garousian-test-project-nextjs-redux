@@ -15,11 +15,12 @@ export const toggleReducer = (builder) => {
     })
     .addCase(toggleTodo.fulfilled, (state, action) => {
       state.actionStatus = STATUSES.SUCCESS;
-      const todo = state.todoList.find(
-        (todo, index) => todo.id === action.payload
-      );
+      const todo = state.todoList.find((todo) => todo.id === action.payload);
       if (todo) {
         todo.completed = !todo.completed;
       }
+    })
+    .addCase(addTodo.rejected, (state) => {
+      state.actionStatus = STATUSES.ERROR;
     });
 };

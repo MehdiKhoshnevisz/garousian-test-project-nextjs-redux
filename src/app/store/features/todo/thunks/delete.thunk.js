@@ -16,7 +16,10 @@ export const deleteReducer = (builder) => {
     .addCase(deleteTodo.fulfilled, (state, action) => {
       state.actionStatus = STATUSES.SUCCESS;
       state.todoList = state.todoList.filter(
-        (todo, index) => todo.id !== action.payload
+        (todo) => todo.id !== action.payload
       );
+    })
+    .addCase(addTodo.rejected, (state) => {
+      state.actionStatus = STATUSES.ERROR;
     });
 };
