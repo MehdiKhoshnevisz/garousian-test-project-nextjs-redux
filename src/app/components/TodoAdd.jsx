@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { STATUSES } from "@/app/constants";
+
 import useTodo from "@/app/hooks/useTodo";
 import todoStyles from "@/app/styles/todo.module.css";
 
@@ -28,7 +30,8 @@ export const TodoAdd = () => {
     dispatch(addTodo(todoItem));
   };
 
-  const buttonText = addStatus === "loading" ? "در حال افزودن" : "اضافه کن";
+  const buttonText =
+    addStatus === STATUSES.LOADING ? "در حال افزودن" : "اضافه کن";
 
   return (
     <div className={todoStyles.addToDInputWrapper}>
